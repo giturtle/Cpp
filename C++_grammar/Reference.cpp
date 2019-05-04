@@ -72,9 +72,8 @@ int main(){
 
 
 
-
 /*传值、传引用效率比较*/
-//1. 参数传递
+//1. 参数传递s
 #include <time.h>
 struct A{
   int a[10000];
