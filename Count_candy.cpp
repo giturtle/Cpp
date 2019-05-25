@@ -12,9 +12,9 @@ int main(){
   int C=(d-b)/2;
   int B1=(c-a)/2;
   int B2=(b+d)/2;
-  if(B1!=B2)
-  cout<<"No";
-  else
-  cout<<A<<" "<<B1<<" "<<C;
+  if(B1!=B2)  cout<<"No";
+  else  cout<<A<<" "<<B1<<" "<<C;
   return 0;
 }
+
+
