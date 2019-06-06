@@ -4,11 +4,12 @@
 //链接：https://www.nowcoder.com/practice/4284c8f466814870bae7799a07d49ec8?tpId=85&&tqId=29852&rp=1&ru =/activity/oj&qru=/ta/2017test/question-ranking
 
 //题目的意思是从N开始，最少需要累加几步可以变成指定的数字M，每次累加的值为当前值的一个约数。 
-//【解题思路】：
+
+//思路：
 //将1 - M个石板看做一个结果数组stepNum，每个stepNum[i]储存着从起点到这一步最小的步数，其中0为不能到达。从
 //起点开始对stepNum进行遍历，先求i的所有约数（即从stepNum[i]能走的步数），然后更新那几个能到达的位置的 最
 //小步数。如果不能到达则更新为此时位置的最小步数 + 1，如果是能到达的就更新为min（已记录的最小步数，此处的
-//最小步数 + 1）），遍历一遍后得到结果。 【示例代码】
+//最小步数 + 1）），遍历一遍后得到结果。 
 #include <iostream>
 #include <vector>
 #include <algorithm>
