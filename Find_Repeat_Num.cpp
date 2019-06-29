@@ -54,3 +54,43 @@ bool Num(int num[], int size, int *dup) {
 	}
 	return false;
 }
+
+
+/*
+	 *方法四：二分查找
+	 */
+	 //时间复杂度O(N),空间复杂度O(N)，但不修改原数组
+	int CountRange(const int* num, int size, int start, int end) {
+		if (num == nullptr) {
+			return 0;
+		}
+		int count = 0;
+		for (int i = 0; i < size; ++i) {
+			if ((num[i] >= start) && (num[i] <= end))
+				++count;
+		}
+		return count;
+	}
+	int GetDup(const int * num, int size) {
+		if ((num == nullptr) || (size <= 0)) {
+			return -1;
+		}
+		int start = 1;
+		int end = size - 1;
+		while (end >= start) {
+			int mid = ((end - start) / 2) + start;
+			int count = CountRange(num, size, start, mid);
+			if (end == start) {
+				if (count > 1)
+					return start;
+				else
+					break;
+			}
+			if (count > (mid - start + 1))
+				end = mid;
+			else
+				start = mid + 1;
+		}
+		return -1;
+	}
+	
