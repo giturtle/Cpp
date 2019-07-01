@@ -21,3 +21,4 @@ bool Find(int *arr, int row, int col, int num) {
 	}
 	return found;
 }
+ 
