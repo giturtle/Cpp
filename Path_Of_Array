@@ -1,0 +1,40 @@
+
+
+
+//矩阵中的路径	【回溯法】
+bool HasPath(char *matrix, int row, int col,char*str) {
+	if (matrix == nullptr || row < 1 || col < 1 || str == nullptr) {
+		return false;
+	}
+	bool *visited = new bool[row * col];
+	memset(visited,0, row*col);
+
+	int pathLength = 0;
+	for (int i = 0; i < row; ++i) {
+		for (int j = 0; j < col; ++j) {
+			if (HasPathCore(matrix, row, col, i, j, str, pathLength, visited)) {
+				return true;
+			}
+		}
+	}
+	delete[] visited;
+	return false;
+}
+bool HasPathCore(const char* matrix, int row, int col,
+	int i, int j, const char* str, int &pathLength, bool *visited) {
+	if (str[pathLength] == '\0')
+		return true;
+	bool hasPath = false;
+	if (i >= 0 && i < row && j >= 0 && j < col
+		&& matrix[i*col + j] == str[pathLength]
+		&& !visited[i*col + j]) {
+		++pathLength;
+	}
+	visited[i*col + j] = true;
+	hasPath = HasPathCore(matrix, row, col, i, j - 1, str, pathLength, visited);
+	if (!hasPath) {
+		--pathLength;
+		visited[i*col + j] = false;
+	}
+	return hasPath;
+}
