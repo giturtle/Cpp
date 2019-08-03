@@ -11,10 +11,15 @@ using namespace std;
 struct pos { int x, y, level; };
  
 int bfs(vector<vector<char> > & map){
+   //四个方向
     const int dir[4][2] = { { -1,0 },{ 1,0 },{ 0,-1 },{ 0,1 } };
+ 
     queue<pos> que;
-    int m = map.size(), n = map[0].size();
-    vector<vector<bool> > visit(m, vector<bool>(n, false));
+ 
+    int m = map.size();  //行
+    int n = map[0].size();  //列
+ 
+    vector<vector<bool> > visit(m, vector<bool>(n, false));  /初始化为false，标记，避免无限递归
  
     pos start{ 0,1,0 }, end{ 9,8,0 };
     que.push(start);
