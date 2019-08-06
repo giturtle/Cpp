@@ -1,4 +1,10 @@
 
+
+//双端队列
+//字符串中控数组！
+
+
+
 template<class T>
 struct __deque_iterator
 {
