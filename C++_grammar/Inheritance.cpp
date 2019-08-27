@@ -45,6 +45,7 @@ int main(){
 //  protetced/private继承，因为protetced/private继承下来的成员都只能在派生类的类里面使用，实际中
 //  扩展维护性不强。
 
+
 //区别
 class Person{
   public :
