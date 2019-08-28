@@ -1,46 +1,35 @@
 
-
-#pragma once
-
 template<class T, class Container = deque<int>>
-class Queue
-{
+class Queue{
 public:
-	void Push(const T& x)
-	{
+	void Push(const T& x){
 		_con.push_back(x);
 	}
 
-	void Pop()
-	{
+	void Pop(){
 		_con.pop_front();
 	}
 
-	size_t Size()
-	{
+	size_t Size(){
 		_con.size();
 	}
 
-	bool Empty()
-	{
+	bool Empty(){
 		return _con.empty();
 	}
 
-	const T& Front()
-	{
+	const T& Front(){
 		return _con.front();
 	}
 
-	const T& Back()
-	{
+	const T& Back(){
 		return _con.back();
 	}
 private:
 	Container _con;
 };
 
-void TestQueue()
-{
+void TestQueue(){
 	//Queue<int, vector<int>> q; vector不支持
 	Queue<int, list<int>> q;
 	q.Push(1);
@@ -48,8 +37,7 @@ void TestQueue()
 	q.Push(3);
 	q.Push(4);
 
-	while (!q.Empty())
-	{
+	while (!q.Empty()){
 		cout << q.Front() << endl;
 		q.Pop();
 	}
