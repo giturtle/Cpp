@@ -1,35 +1,28 @@
-#pragma once
 
 template<class T, class Container = deque<int>>
 class Stack{
 public:
-	void Push(const T& x)
-	{
+	void Push(const T& x){
 		_con.push_back(x);
 	}
 
-	void Pop()
-	{
+	void Pop(){
 		_con.pop_back();
 	}
 
-	size_t Size() const
-	{
+	size_t Size() const{
 		return _con.size();
 	}
 
-	bool Empty() const
-	{
+	bool Empty() const{
 		return _con.empty();
 	}
 
-	T& Top()
-	{
+	T& Top(){
 		return _con.back();
 	}
 
-	const T& Top() const
-	{
+	const T& Top() const{
 		return _con.back();
 	}
 
@@ -37,8 +30,7 @@ private:
 	Container _con;
 };
 
-void TestStack()
-{
+void TestStack(){
 	//Stack<int, vector<int>> s;
 	//Stack<int, list<int>> s;
 	//Stack<int> s;
@@ -49,8 +41,7 @@ void TestStack()
 	s.Push(3);
 	s.Push(4);
 
-	while (!s.Empty())
-	{
+	while (!s.Empty()){
 		cout << s.Top() << endl;
 		s.Pop();
 	}
